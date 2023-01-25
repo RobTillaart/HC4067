@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - fix bit mask
 - removed return value **setCHannel()** as makes no sense.
 - updated readme.md.
+- add performance example
 - minor edits.
 
 

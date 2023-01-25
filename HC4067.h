@@ -42,21 +42,21 @@ public:
 
   void setChannel(uint8_t channel)
   {
-    if (channel != _channel)
+    if ((channel & 0x0F) != _channel)
     {
+      _channel = channel & 0x0F;
       uint8_t mask = 0x08;
       uint8_t i = 3;
       while (mask)
       {
-        digitalWrite(_pins[i--], (mask & channel));
+        digitalWrite(_pins[i--], (mask & _channel));
         mask >>= 1;
       }
-      _channel = channel;
     }
   }
 
 
-  uint8_t  getChannel()
+  uint8_t getChannel()
   {
     return _channel;
   }
@@ -95,28 +95,6 @@ private:
   uint8_t  _enablePin = 255;
   uint8_t  _channel   = 0;
 };
-
-
-/*
-class HC4067
-{
-public:
-  explicit HC4067(uint8_t s0, uint8_t s1, uint8_t s2, uint8_t s3);
-
-  uint8_t  setChannel(uint8_t chan);
-  uint8_t  getChannel();
-
-  void enable();
-  void disable();
-  bool isEnabled();
-
-private:
-  uint8_t  _pins[4];
-  uint8_t  _enablePin = 255;
-  uint8_t  _channel   = 0;
-}
-*/
-
 
 
 //  -- END OF FILE --
