@@ -40,7 +40,7 @@ public:
   }
 
 
-  uint8_t setChannel(uint8_t channel)
+  void setChannel(uint8_t channel)
   {
     if (channel != _channel)
     {
@@ -53,7 +53,6 @@ public:
       }
       _channel = channel;
     }
-    return _channel;
   }
 
 

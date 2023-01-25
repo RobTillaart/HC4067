@@ -1,6 +1,6 @@
 {
   "name": "HC4067",
-  "keywords": "CD74HC4067",
+  "keywords": "CD74HC4067,74HC4067,74HCT4067",
   "description": "Arduino library for a HC4067 16 channel multiplexer.",
   "authors":
   [

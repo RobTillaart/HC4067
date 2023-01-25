@@ -16,18 +16,23 @@ HC4067 is an Arduino library for a HC4067 16 channel multiplexer.
 A HC4067 class is a simple library to control the CD74HC4067 16 channel
 multiplexer and compatible devices.
 
+The channel selection is done with 4 select lines **S0..S3**
+
+The device can be enables/disabled by the Enable line **E**
+
 
 #### Compatibles
 
-TODO
+Not tested these but considered compatible
+- CD74HC4067, 74HC4067, 74HCT4067
 
 
 ## Hardware connection
 
-Typical connection is to connect the 4 select pins to 4 IO Pins of your board.
+Typical connection is to connect the 4 **select pins** to 4 IO Pins of your board.
 
-The optional enable Pin must be connected to GND is not used, to enable
-the device constantly.
+The optional **enablePin** must be connected to GND is not used.
+This way the device is continuous enabled.
 
 
 ## Interface
@@ -41,8 +46,8 @@ the device constantly.
 - **HC4067(uint8_t s0, uint8_t s1, uint8_t s2, uint8_t s3, uint8_t enablePin = 255)** constructor.
 Set the 4 select pins and optional the enable pin.
 If the enablePin == 255 it is considered not used.
-- **uint8_t  setChannel(uint8_t channel)** set the current channel.
-Valid values 0..15, these are not checked.
+- **void  setChannel(uint8_t channel)** set the current channel.
+Valid values 0..15, the value are not checked.
 - **uint8_t getChannel()** get current channel.
 
 
