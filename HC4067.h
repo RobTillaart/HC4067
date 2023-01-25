@@ -83,7 +83,7 @@ public:
   {
     if (_enablePin != 255)
     {
-      return digitalRead(_enablePin);
+      return (digitalRead(_enablePin) == LOW);
     }
     return true;
   }
