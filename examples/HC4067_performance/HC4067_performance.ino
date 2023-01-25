@@ -27,6 +27,14 @@ void setup()
   Serial.println(stop - start);
   delay(100);
 
+  start = micros();
+  mp.setChannel(10);
+  stop = micros();
+
+  Serial.print("SetChannel: \t");
+  Serial.println(stop - start);
+  delay(100);
+
 }
 
 

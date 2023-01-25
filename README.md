@@ -13,8 +13,12 @@ HC4067 is an Arduino library for a HC4067 16 channel multiplexer.
 
 ## Description
 
-A HC4067 class is a library to control the CD74HC4067 16 channel
-multiplexer and compatible devices.
+HC4067 is a library to control the CD74HC4067 16 channel
+multiplexer / demultiplexer and compatible devices.
+
+The HC4067 allows e.g one analog port read up to 16 different analog channels,
+or one digital port to read the state of 16 buttons.
+
 
 The channel selection is done with four select lines **S0..S3**
 
@@ -33,6 +37,32 @@ Typical connection is to connect the four **select pins** to four IO Pins of you
 
 The optional **enablePin E** must be connected to GND if not used.
 This way the device is continuous enabled.
+
+Example multiplexing analog in.
+
+```
+        processor                      HC4067
+     +-------------+              +-------------+
+     |             |              |             |
+     |          S0 |------------->| S0       Y0 |
+     |          S1 |------------->| S1       Y1 |
+     |          S2 |------------->| S2       Y2 |
+     |          S3 |------------->| S3       Y3 |
+     |             |              |          Y4 |
+     |          E  |------------->| Enable   Y5 |
+     |             |              |          Y6 |
+     |             |              |          Y7 |
+     |         A0  |<-------------| Z        Y8 |
+     |             |              |          Y9 |
+     |             |              |         Y10 |
+     |             |              |         Y11 |
+     |             |              |         Y12 |
+     |             |              |         Y13 |
+     |        GND  |--------------| GND     Y14 |
+     |             |              | VCC     Y15 |
+     |             |              |             |
+     +-------------+              +-------------+
+```
 
 
 ## Interface
@@ -80,17 +110,16 @@ Also returns true if enablePin is not set.
 #### Could
 
 - next() and prev() as channel selector.
-  - internal channel var. needed.
-- code to .cpp file
-- example
-  - scan all 16 channels into a uint16_t - IO not analog.
+  - internal channel variable needed.
+- move code to .cpp file
 - investigate
-  - can it be used as 16 channel OUTPUT
+  - can it be used as 16 channel OUTPUT (yes but)
   - is it buffered?
 
 
 #### Won't (unless requested)
 
 - optimizations
-  - only DW when changed? gain is minimal.
+  - only do digitalWrite when changed? gain is minimal.
+  - now takes 24 micros on UNO if set.
 

@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - fix bit mask
 - removed return value **setCHannel()** as makes no sense.
 - updated readme.md.
-- add performance example
+- add example HC4067_performance.ino 
+- add example HC4067_16_buttons.ino
 - minor edits.
 
 
