@@ -38,10 +38,12 @@ the device constantly.
 
 #### Core
 
-- **HC4067(uint8_t s0, uint8_t s1, uint8_t s2, uint8_t s3, uint8_t enable = 255)** constructor.
-Set the 4 select pins and optional the enable pins.
-- **uint8_t  setChannel(uint8_t chan)** set the current channel.
-- **uint8_t  getChannel()** get current channel.
+- **HC4067(uint8_t s0, uint8_t s1, uint8_t s2, uint8_t s3, uint8_t enablePin = 255)** constructor.
+Set the 4 select pins and optional the enable pin.
+If the enablePin == 255 it is considered not used.
+- **uint8_t  setChannel(uint8_t channel)** set the current channel.
+Valid values 0..15, these are not checked.
+- **uint8_t getChannel()** get current channel.
 
 
 #### Enable

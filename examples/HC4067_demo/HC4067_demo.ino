@@ -2,10 +2,7 @@
 //    FILE: HC4067_demo.ino
 //  AUTHOR: Rob Tillaart
 // PURPOSE: Demo for HC4067 16 channel (simple) multiplexer
-//
 
-//  setup description
-//
 
 #include "HC4067.h"
 
@@ -36,3 +33,4 @@ void loop()
 
 
 //  -- END OF FILE --
+
